@@ -6,13 +6,14 @@ const gallery = document.querySelector(".gallery");
 gallery.addEventListener("click", onGalleryClick);
 gallery.insertAdjacentHTML("beforeend", createGaleryItems(galleryItems));
 
+let galleryLightbox = new SimpleLightbox(".gallery__link", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
+
 function onGalleryClick(event) {
   event.preventDefault();
   if (event.target.nodeName !== "IMG") return;
-  let galleryLightbox = new SimpleLightbox(".gallery__link", {
-    captionsData: "alt",
-    captionDelay: 250,
-  });
 }
 
 function createGaleryItems(galleryItemsArr) {
